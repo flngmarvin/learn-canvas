@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+         canvas {
+             border: 1px solid #000;
+         }
+     </style>
+     <title>Pixel Art</title>
+</head>
+<body>
+     <canvas id="pixelCanvas" width="400" height="400"></canvas>
+     <script>
+         const canvas = document.getElementById('pixelCanvas');
+         const context = canvas.getContext('2d');
+         const pixelSize = 20; // Size of one pixel
+
+         // Function to draw one pixel
+         function drawPixel(x, y, color) {
+             context.fillStyle = color;
+             context.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+         }
+
+         // Example: Drawing a simple pixel image
+         const pixelImage = [
+             [1, 0, 1, 0, 1],
+             [0, 1, 0, 1, 0],
+             [1, 0, 1, 0, 1],
+             [0, 1, 0, 1, 0],
+             [1, 0, 1, 0, 1]
+         ];
+
+         // Set the pixel color (for example, black)
+         const pixelColor = '#000';
+
+         // Draw a pixel image
+         for (let y = 0; y < pixelImage.length; y++) {
+             for (let x = 0; x < pixelImage[y].length; x++) {
+                 if (pixelImage[y][x] === 1) {
+                     drawPixel(x, y, pixelColor);
+                 }
+             }
+         }
+     </script>
+</body>
+</html>
